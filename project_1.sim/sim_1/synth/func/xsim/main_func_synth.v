@@ -2,7 +2,7 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-// Date        : Tue Jan  7 16:23:30 2025
+// Date        : Tue Jan  7 22:56:47 2025
 // Host        : LAPTOP-JN7345HR running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode funcsim -nolib -force -file
 //               D:/HK241/project_1/project_1.sim/sim_1/synth/func/xsim/main_func_synth.v
@@ -291,7 +291,7 @@ module alu
   wire [3:0]NLW_result2_carry__2_O_UNCONNECTED;
 
   LUT5 #(
-    .INIT(32'h00081F80)) 
+    .INIT(32'h00101F80)) 
     g0_b13
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -300,7 +300,7 @@ module alu
         .I4(Q[4]),
         .O(instruction_OBUF[2]));
   LUT5 #(
-    .INIT(32'h0003E004)) 
+    .INIT(32'h0007E004)) 
     g0_b14
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -310,7 +310,7 @@ module alu
         .O(instruction_OBUF[3]));
   (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
-    .INIT(32'h0018207F)) 
+    .INIT(32'h0030207F)) 
     g0_b15
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -318,17 +318,18 @@ module alu
         .I3(Q[3]),
         .I4(Q[4]),
         .O(instruction_OBUF[4]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
-  LUT4 #(
-    .INIT(16'h0180)) 
-    g0_b16__0
-       (.I0(Q[1]),
-        .I1(Q[2]),
-        .I2(Q[3]),
-        .I3(Q[4]),
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT5 #(
+    .INIT(32'h0007C000)) 
+    g0_b16
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(Q[2]),
+        .I3(Q[3]),
+        .I4(Q[4]),
         .O(instruction_OBUF[5]));
   LUT5 #(
-    .INIT(32'h00010914)) 
+    .INIT(32'h00020914)) 
     g0_b17
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -337,7 +338,7 @@ module alu
         .I4(Q[4]),
         .O(instruction_OBUF[6]));
   LUT5 #(
-    .INIT(32'h00021278)) 
+    .INIT(32'h00041278)) 
     g0_b18
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -345,9 +346,9 @@ module alu
         .I3(Q[3]),
         .I4(Q[4]),
         .O(instruction_OBUF[7]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
-    .INIT(32'h0018727E)) 
+    .INIT(32'h0030727E)) 
     g0_b20
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -355,16 +356,17 @@ module alu
         .I3(Q[3]),
         .I4(Q[4]),
         .O(instruction_OBUF[8]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
-  LUT4 #(
-    .INIT(16'h0100)) 
-    g0_b21__0
-       (.I0(Q[1]),
-        .I1(Q[2]),
-        .I2(Q[3]),
-        .I3(Q[4]),
-        .O(instruction_OBUF[9]));
   (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT5 #(
+    .INIT(32'h00060000)) 
+    g0_b21
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(Q[2]),
+        .I3(Q[3]),
+        .I4(Q[4]),
+        .O(instruction_OBUF[9]));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT5 #(
     .INIT(32'h00000D81)) 
     g0_b6
@@ -374,7 +376,7 @@ module alu
         .I3(Q[3]),
         .I4(Q[4]),
         .O(instruction_OBUF[1]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT5 #(
     .INIT(32'h00000D80)) 
     g0_b7
@@ -3985,7 +3987,7 @@ module register_file
 
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT5 #(
-    .INIT(32'h00091DE0)) 
+    .INIT(32'h00121DE0)) 
     g0_b0
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4005,7 +4007,7 @@ module register_file
         .O(instruction_OBUF[1]));
   (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT5 #(
-    .INIT(32'h00008FF0)) 
+    .INIT(32'h00018FF0)) 
     g0_b10
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4015,7 +4017,7 @@ module register_file
         .O(instruction_OBUF[8]));
   (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT5 #(
-    .INIT(32'h00100FFA)) 
+    .INIT(32'h00200FFA)) 
     g0_b11
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4025,7 +4027,7 @@ module register_file
         .O(instruction_OBUF[9]));
   (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
-    .INIT(32'h00023D80)) 
+    .INIT(32'h00043D80)) 
     g0_b12
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4035,7 +4037,7 @@ module register_file
         .O(instruction_OBUF[10]));
   (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
-    .INIT(32'h0004DFF0)) 
+    .INIT(32'h0009DFF0)) 
     g0_b2
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4045,7 +4047,7 @@ module register_file
         .O(instruction_OBUF[2]));
   (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT5 #(
-    .INIT(32'h00008D81)) 
+    .INIT(32'h00018D81)) 
     g0_b22
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4055,7 +4057,7 @@ module register_file
         .O(instruction_OBUF[11]));
   (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT5 #(
-    .INIT(32'h0004C481)) 
+    .INIT(32'h0009C481)) 
     g0_b23
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4065,7 +4067,7 @@ module register_file
         .O(instruction_OBUF[12]));
   (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT5 #(
-    .INIT(32'h00010D80)) 
+    .INIT(32'h00020D80)) 
     g0_b24
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4075,7 +4077,7 @@ module register_file
         .O(instruction_OBUF[13]));
   (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT5 #(
-    .INIT(32'h0008CD84)) 
+    .INIT(32'h0010CD84)) 
     g0_b25
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4085,7 +4087,7 @@ module register_file
         .O(instruction_OBUF[14]));
   (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT5 #(
-    .INIT(32'h00008001)) 
+    .INIT(32'h00018001)) 
     g0_b26
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4105,7 +4107,7 @@ module register_file
         .O(instruction_OBUF[3]));
   (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT5 #(
-    .INIT(32'h00040D80)) 
+    .INIT(32'h00080D80)) 
     g0_b4
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4115,7 +4117,7 @@ module register_file
         .O(instruction_OBUF[4]));
   (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT5 #(
-    .INIT(32'h00123FFA)) 
+    .INIT(32'h00243FFA)) 
     g0_b5
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4125,7 +4127,7 @@ module register_file
         .O(instruction_OBUF[5]));
   (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT5 #(
-    .INIT(32'h00102FAA)) 
+    .INIT(32'h00202FAA)) 
     g0_b8
        (.I0(Q[0]),
         .I1(Q[1]),
@@ -4135,7 +4137,7 @@ module register_file
         .O(instruction_OBUF[6]));
   (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT5 #(
-    .INIT(32'h00020FC8)) 
+    .INIT(32'h00040FC8)) 
     g0_b9
        (.I0(Q[0]),
         .I1(Q[1]),

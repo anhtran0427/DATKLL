@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Tue Jan  7 16:42:34 2025
+| Date         : Tue Jan  7 22:56:14 2025
 | Host         : LAPTOP-JN7345HR running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mips_processor_utilization_synth.rpt -pb mips_processor_utilization_synth.pb
 | Design       : mips_processor
@@ -153,13 +153,13 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | FDCE     |  480 |        Flop & Latch |
 | LUT6     |  348 |                 LUT |
-| LUT5     |  104 |                 LUT |
+| LUT5     |  106 |                 LUT |
 | LUT3     |   77 |                 LUT |
 | LUT2     |   67 |                 LUT |
 | MUXF7    |   66 |               MuxFx |
 | OBUF     |   64 |                  IO |
 | FDRE     |   60 |        Flop & Latch |
-| LUT4     |   47 |                 LUT |
+| LUT4     |   45 |                 LUT |
 | CARRY4   |   36 |          CarryLogic |
 | MUXF8    |   33 |               MuxFx |
 | RAMS64E  |   32 |  Distributed Memory |

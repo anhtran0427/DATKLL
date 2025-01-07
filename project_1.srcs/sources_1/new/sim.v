@@ -24,7 +24,7 @@ module main;
   reg clk,reset;  
   wire [31:0] o_instruction;
   wire [31:0] o_pc_cur;
-  wire [31:0] o_pc_next;
+
   integer i;
   initial 
     begin

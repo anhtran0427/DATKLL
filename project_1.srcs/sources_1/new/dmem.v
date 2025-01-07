@@ -35,7 +35,7 @@ module data_memory(
     always @(posedge clk) begin
         if (mem_write) begin
             memory[addr-7'h40] <= write_data;
-            $display("Write at addr %h value %h",addr,write_data);
+            $display("Write at addr %d value %h",addr*4,write_data);
         end
        
     end
