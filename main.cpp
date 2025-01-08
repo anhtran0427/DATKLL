@@ -12,7 +12,7 @@ int main() {
 
         while ( getline (myfile,line) )
         {
-            cout << "memory["<<i<<"]=32'h"<<line << '\n';
+            cout << "memory["<<i<<"]=32'h"<<line << ";\n";
             i++;
         }
         myfile.close();
