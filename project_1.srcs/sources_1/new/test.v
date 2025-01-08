@@ -51,7 +51,7 @@ module mips_processor(
     //0: word, 1: half, 2: byte
    
     // Control signals
-    wire reg_dst, branch, mem_read, mem_to_reg;
+    wire reg_dst, branch, mem_read, mem_to_reg,branch_not_eq;
     wire mem_write, alu_src, reg_write;
     wire jump, zero;
     wire sign_ext,mem_sign_ext;
@@ -111,6 +111,7 @@ module mips_processor(
         .opcode(instruction[31:26]),
         .reg_dst(reg_dst),
         .branch(branch),
+        .branch_not_eq(branch_not_eq),
         .mem_read(mem_read),
         .mem_to_reg(mem_to_reg),
         .alu_op(alu_op),
@@ -132,11 +133,14 @@ module mips_processor(
     );
    
     // Next PC logic
-    assign pc_next = (branch & zero) ? pc + 4 + (instruction[15:0] << 2) :
-                    jump ? {pc[31:28], instruction[25:0], 2'b00} :
-                    pc + 4;
-
-
+    assign pc_next = (branch & zero) || (branch_not_eq & !zero)? pc + 4 + (instruction[15:0] << 2) :
+                      jump ? {pc[31:28], instruction[25:0], 2'b00} :
+                      pc + 4;
+                      
+/*    assign pc_next = (branch & zero) ? pc + 4 + (instruction[15:0] << 2) :
+                      jump ? {pc[31:28], instruction[25:0], 2'b00} :
+                      pc + 4;
+*/
     // Write register MUX
     assign write_reg = reg_dst ? instruction[15:11] : instruction[20:16];
 

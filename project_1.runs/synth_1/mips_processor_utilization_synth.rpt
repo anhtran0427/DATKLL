@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Wed Jan  8 14:31:24 2025
+| Date         : Wed Jan  8 16:22:28 2025
 | Host         : LAPTOP-JN7345HR running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mips_processor_utilization_synth.rpt -pb mips_processor_utilization_synth.pb
 | Design       : mips_processor
@@ -31,8 +31,8 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                |  698 |     0 |          0 |     53200 |  1.31 |
-|   LUT as Logic             |  666 |     0 |          0 |     53200 |  1.25 |
+| Slice LUTs*                |  674 |     0 |          0 |     53200 |  1.27 |
+|   LUT as Logic             |  642 |     0 |          0 |     53200 |  1.21 |
 |   LUT as Memory            |   32 |     0 |          0 |     17400 |  0.18 |
 |     LUT as Distributed RAM |   32 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
@@ -152,14 +152,14 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDCE     |  480 |        Flop & Latch |
-| LUT6     |  376 |                 LUT |
-| LUT5     |  160 |                 LUT |
-| LUT4     |   74 |                 LUT |
+| LUT6     |  352 |                 LUT |
+| LUT5     |  139 |                 LUT |
+| LUT4     |   93 |                 LUT |
+| LUT2     |   82 |                 LUT |
 | MUXF7    |   66 |               MuxFx |
-| LUT2     |   66 |                 LUT |
 | OBUF     |   64 |                  IO |
 | FDRE     |   60 |        Flop & Latch |
-| LUT3     |   46 |                 LUT |
+| LUT3     |   48 |                 LUT |
 | CARRY4   |   36 |          CarryLogic |
 | MUXF8    |   33 |               MuxFx |
 | RAMS64E  |   32 |  Distributed Memory |

@@ -419,7 +419,7 @@ set_property PACKAGE_PIN G22 [get_ports XADC_GPIO_2]
 set_property IOSTANDARD LVCMOS25 [get_ports XADC_GPIO_2]
 set_property PACKAGE_PIN H18 [get_ports XADC_GPIO_3]
 set_property IOSTANDARD LVCMOS25 [get_ports XADC_GPIO_3]
-create_clock -period 12.000 -name sys_clk -waveform {0.000 6.000} -add [get_ports clk]
+create_clock -period 14.000 -name sys_clk -waveform {0.000 7.000} -add [get_ports clk]
 #NET  PS_CLK                    LOC = F7  ; # Bank 500 - PS_CLK_500
 #NET  8N2                       LOC = F8  ; # Bank 501 - PS_MIO_VREF_501
 #NET  PS_POR_B                  LOC = B5  ; # Bank 500 - PS_POR_B_500

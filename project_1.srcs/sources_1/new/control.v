@@ -2,6 +2,7 @@ module control_unit(
     input wire [5:0] opcode,
     output reg reg_dst,
     output reg branch,
+    output reg branch_not_eq,
     output reg mem_read,
     output reg mem_to_reg,
     output reg [1:0] alu_op,
@@ -29,7 +30,7 @@ module control_unit(
     parameter LBU    = 6'b100100;
     parameter SH     = 6'b101001;
     parameter SB     = 6'b101000;
-
+    parameter BNE    = 6'b000101;
     always @(*) begin
         case(opcode)
             R_TYPE: begin // R-type instructions
@@ -40,6 +41,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b10;
                 jump = 1'b0;
                 sign_ext = 1'b0;
@@ -55,6 +57,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;  // Use ALU for addition
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -70,6 +73,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b11;  // Special ALU op for immediate AND
                 jump = 1'b0;
                 sign_ext = 1'b0;
@@ -85,6 +89,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b11;  // Special ALU op for immediate OR
                 jump = 1'b0;
                 sign_ext = 1'b0;
@@ -100,6 +105,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b11;  // Special ALU op for immediate SLT
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -115,6 +121,7 @@ module control_unit(
                 mem_read = 1'b1;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -130,6 +137,7 @@ module control_unit(
                 mem_read = 1'b1;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -145,6 +153,7 @@ module control_unit(
                 mem_read = 1'b1;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -160,6 +169,7 @@ module control_unit(
                 mem_read = 1'b1;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -175,6 +185,7 @@ module control_unit(
                 mem_read = 1'b1;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -190,6 +201,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b1;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -205,6 +217,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b1;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -220,6 +233,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b1;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b1;
@@ -236,12 +250,30 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b1;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b01;
                 jump = 1'b0;
                 sign_ext = 1'b0;
                 mem_sign_ext = 1'b0;
                 mem_mode = 2'b00;
             end
+            
+            BNE: begin
+                reg_dst = 1'b0;
+                alu_src = 1'b0;
+                mem_to_reg = 1'b0;
+                reg_write = 1'b0;
+                mem_read = 1'b0;
+                mem_write = 1'b0;
+                branch = 1'b0;
+                branch_not_eq = 1'b1;
+                alu_op = 2'b01;
+                jump = 1'b0;
+                sign_ext = 1'b0;
+                mem_sign_ext = 1'b0;
+                mem_mode = 2'b00;
+            end
+
             
             J: begin
                 reg_dst = 1'b0;
@@ -251,6 +283,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b1;
                 sign_ext = 1'b0;
@@ -266,6 +299,7 @@ module control_unit(
                 mem_read = 1'b0;
                 mem_write = 1'b0;
                 branch = 1'b0;
+                branch_not_eq = 1'b0;
                 alu_op = 2'b00;
                 jump = 1'b0;
                 sign_ext = 1'b0;

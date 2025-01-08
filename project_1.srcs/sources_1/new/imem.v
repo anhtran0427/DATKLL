@@ -35,15 +35,13 @@ memory[11]=32'h3421ffff;
 memory[12]=32'h01418025;
 memory[13]=32'h010a882a;
 memory[14]=32'h29120006;
-memory[15]=32'hac120104;
-memory[16]=32'h12320001;
-memory[17]=32'h02529020;
-memory[18]=32'h08000014;
-memory[19]=32'h21090001;
-memory[20]=32'h01084820;
-memory[21]=32'hAC080104;
-memory[22]=32'hA4080104;
-memory[23]=32'hA0080104;
+memory[15]=32'hac120120;
+memory[16]=32'h152a0003;
+memory[17]=32'h12320001;
+memory[18]=32'h02529020;
+memory[19]=32'h08000015;
+memory[20]=32'h21090001;
+memory[21]=32'h01085020;
 
     end
 
