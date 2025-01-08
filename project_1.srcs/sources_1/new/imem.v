@@ -20,7 +20,7 @@ module instruction_memory(
 */    
      initial begin
         // add $t0, $s1, $s2      // R-type
-       memory[0]=32'h8c080100;
+memory[0]=32'h8c080100;
 memory[1]=32'h01084820;
 memory[2]=32'h212a0002;
 memory[3]=32'h01485822;
@@ -35,13 +35,16 @@ memory[11]=32'h3421ffff;
 memory[12]=32'h01418025;
 memory[13]=32'h010a882a;
 memory[14]=32'h29120006;
-memory[15]=32'hAC120110;
-memory[16]=32'h8C120110;
-memory[17]=32'h12320001;
-memory[18]=32'h02529020;
-memory[19]=32'h08000014;
-memory[20]=32'h21090001;
-memory[21]=32'h01084820;
+memory[15]=32'hac120104;
+memory[16]=32'h12320001;
+memory[17]=32'h02529020;
+memory[18]=32'h08000014;
+memory[19]=32'h21090001;
+memory[20]=32'h01084820;
+memory[21]=32'hAC080104;
+memory[22]=32'hA4080104;
+memory[23]=32'hA0080104;
+
     end
 
 

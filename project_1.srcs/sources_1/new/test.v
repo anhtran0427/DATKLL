@@ -35,7 +35,7 @@ module mips_processor(
 );
 
     // Internal wires
-  
+    
     wire [31:0] pc_next;
     //wire [31:0] instruction;
     wire [31:0] read_data_1, read_data_2;
@@ -47,11 +47,14 @@ module mips_processor(
     wire [5:0] opcode;
     wire [5:0] funct;
     wire [1:0] alu_op;
+    wire [1:0] mem_mode;
+    //0: word, 1: half, 2: byte
    
     // Control signals
     wire reg_dst, branch, mem_read, mem_to_reg;
     wire mem_write, alu_src, reg_write;
     wire jump, zero;
+    wire sign_ext,mem_sign_ext;
 
     // Program Counter
     reg [31:0] pc;
@@ -86,7 +89,7 @@ module mips_processor(
     alu main_alu (
         .alu_control(alu_control),
         .a(read_data_1),
-        .b(alu_src ? {{16{instruction[15]}}, instruction[15:0]} : read_data_2),
+        .b(alu_src ? ( sign_ext ? {{16{instruction[15]}}, instruction[15:0]} :{{16{1'b0}}, instruction[15:0]}) : read_data_2),
         .result(alu_result),
         .zero(zero)
     );
@@ -96,9 +99,11 @@ module mips_processor(
         .clk(clk),
         .mem_write(mem_write),
         .mem_read(mem_read),
-        .addr(alu_result[8:2]),
+        .addr(alu_result[8:0]),
         .write_data(read_data_2),
-        .read_data(mem_read_data)
+        .read_data(mem_read_data),
+        .mem_sign_ext(mem_sign_ext),
+        .mem_mode(mem_mode)
     );
 
     // Control Unit
@@ -112,7 +117,10 @@ module mips_processor(
         .mem_write(mem_write),
         .alu_src(alu_src),
         .reg_write(reg_write),
-        .jump(jump)
+        .jump(jump),
+        .sign_ext(sign_ext),
+        .mem_sign_ext(mem_sign_ext),
+        .mem_mode(mem_mode)
     );
 
     // ALU Control
